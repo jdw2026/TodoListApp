@@ -251,30 +251,35 @@ extension AllTodoListViewController: UITableViewDataSource {
     //테이블뷰 셀 이동 메서드
       func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
           
+          // 이동하기 전에 값 원본 임시로 저장
+          guard var tempAllData = self.dicDataArray else { return }
           
+          // ToDo 리스트 정렬
+          let sortedAllData = Array(tempAllData.keys).sorted()
+          // 출발 섹션 키
+          let sourceSectionKey = sortedAllData[sourceIndexPath.section]
+          // 목적지 섹션 키
+          let destinationSectionKey = sortedAllData[destinationIndexPath.section]
           
-          
-          
-//          // allData에 모든 데이터 배열 넣기
-          guard var allData = dicDataArray else { return }
-//          
-//          // 섹션키(날짜) 정렬
-          let sectionKeys = Array(allData.keys).sorted()
-          let sourceSectionKey = sectionKeys[sourceIndexPath.section] //이동하는 데이터 섹션 키
-//          let sourceDate = DateHelper.dayStringToDate(text: sourceSectionKey) // 이동하는 데이터 날짜
-          let destinationSectionKey = sectionKeys[destinationIndexPath.section] //이동될 데이터 섹션키
-//          let desticationDate = DateHelper.dayStringToDate(text: destinationSectionKey) // 이동될 데이터 날짜
-          
-          
-          
-//          print("1")
-//          // 이동할 데이터 임시 저장
-          guard var sourceSectionData = allData[sourceSectionKey] else { return }
+          // 이동할 데이터 임시 저장
+          guard let sourceSectionData = tempAllData[sourceSectionKey] else { return }
           let movedData = sourceSectionData[sourceIndexPath.row]
           
-          
+          // 원본 데이터 값 이동 (이미 여기서 테이블뷰는 다시 그려진거나 다름 없음)
           self.dicDataArray?[sourceSectionKey]?.remove(at: sourceIndexPath.row)
           self.dicDataArray?[destinationSectionKey]?.append(movedData)
+          
+          // 코어 데이터도 위 기준으로 삭제 및 추가
+          
+          // 코어 데이터 다시 불러와서 dicDataArray 코어데이터 기준으로 업데이트
+//          setupData()
+          
+          
+          
+          
+          
+          
+          
           
           
           
