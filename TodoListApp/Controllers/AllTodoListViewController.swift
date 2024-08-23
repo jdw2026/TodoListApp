@@ -34,7 +34,6 @@ final class AllTodoListViewController: UIViewController {
         allTodoListView.tableView.dragDelegate = self
         allTodoListView.tableView.dropDelegate = self
         
-        setupData()
         setupSearchBar()
         setupNotification()
         
