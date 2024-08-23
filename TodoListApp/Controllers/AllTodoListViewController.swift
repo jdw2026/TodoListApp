@@ -45,7 +45,6 @@ final class AllTodoListViewController: UIViewController {
         super.viewWillAppear(animated)
         print(#function, "올투두리스트뷰컨트롤러")
         setupData()
-        allTodoListView.tableView.reloadData()
 //        if dicDataArray != [:] {
 //            scrollToClosestDateSection(in: allTodoListView.tableView, sections: sectionTitles!)
 //        }
@@ -74,6 +73,7 @@ final class AllTodoListViewController: UIViewController {
         let allTodoData = todoManager.getAllToDoListFromCoreData()
         dicDataArray = todoDataToDic(todoDataList: allTodoData)
         sectionTitles = dicDataArray?.keys.sorted()
+        allTodoListView.tableView.reloadData()
     }
     
     //노티피케이션 셋팅
