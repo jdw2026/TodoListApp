@@ -47,10 +47,10 @@ final class AllTodoListViewController: UIViewController {
         print(#function, "올투두리스트뷰컨트롤러")
         setupData()
         allTodoListView.tableView.reloadData()
-        if dicDataArray != [:] {
-            scrollToClosestDateSection(in: allTodoListView.tableView, sections: sectionTitles!)
-        }
-        
+//        if dicDataArray != [:] {
+//            scrollToClosestDateSection(in: allTodoListView.tableView, sections: sectionTitles!)
+//        }
+//        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -251,70 +251,88 @@ extension AllTodoListViewController: UITableViewDataSource {
     //테이블뷰 셀 이동 메서드
       func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
           
-          // allData에 모든 데이터 배열 넣기
-          guard var allData = dicDataArray else { return }
           
-          // 섹션키(날짜) 정렬
+          
+          
+          
+//          // allData에 모든 데이터 배열 넣기
+          guard var allData = dicDataArray else { return }
+//          
+//          // 섹션키(날짜) 정렬
           let sectionKeys = Array(allData.keys).sorted()
           let sourceSectionKey = sectionKeys[sourceIndexPath.section] //이동하는 데이터 섹션 키
-          let sourceDate = DateHelper.dayStringToDate(text: sourceSectionKey) // 이동하는 데이터 날짜
+//          let sourceDate = DateHelper.dayStringToDate(text: sourceSectionKey) // 이동하는 데이터 날짜
           let destinationSectionKey = sectionKeys[destinationIndexPath.section] //이동될 데이터 섹션키
-          let desticationDate = DateHelper.dayStringToDate(text: destinationSectionKey) // 이동될 데이터 날짜
+//          let desticationDate = DateHelper.dayStringToDate(text: destinationSectionKey) // 이동될 데이터 날짜
           
-          // 이동할 데이터 임시 저장
+          
+          
+//          print("1")
+//          // 이동할 데이터 임시 저장
           guard var sourceSectionData = allData[sourceSectionKey] else { return }
           let movedData = sourceSectionData[sourceIndexPath.row]
           
-          // 이동할 데이터 삭제
-          sourceSectionData.remove(at: sourceIndexPath.row)
-          if sourceSectionData.isEmpty {
-              allData.removeValue(forKey: sourceSectionKey)
-          } else {
-              allData[sourceSectionKey] = sourceSectionData
-          }
           
-          // 이동할 데이터 추가
-          guard var destinationSectionData = allData[destinationSectionKey] else { return }
-          destinationSectionData.insert(movedData, at: destinationIndexPath.row)
-          allData[destinationSectionKey] = destinationSectionData
-    
-          //테이블뷰 업데이트 시작
-          tableView.beginUpdates()
+          self.dicDataArray?[sourceSectionKey]?.remove(at: sourceIndexPath.row)
+          self.dicDataArray?[destinationSectionKey]?.append(movedData)
           
-          tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
           
-          if sourceSectionData.isEmpty {
-              tableView.deleteSections(IndexSet(integer: sourceIndexPath.section), with: .automatic)
-          }
+          
+          
+//          print("2")
+//          // 이동할 데이터 삭제
+//          sourceSectionData.remove(at: sourceIndexPath.row)
+//          if sourceSectionData.isEmpty {
+//              allData.removeValue(forKey: sourceSectionKey)
+//          } else {
+//              allData[sourceSectionKey] = sourceSectionData
+//          }
+//          print("3")
+//          // 이동할 데이터 추가
+//          guard var destinationSectionData = allData[destinationSectionKey] else { return }
+//          destinationSectionData.insert(movedData, at: destinationIndexPath.row)
+//          allData[destinationSectionKey] = destinationSectionData
+//          print("4")
+//          //테이블뷰 업데이트 시작
+//          tableView.beginUpdates()
+//          print("5")
+//          tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
+//          print("6")
+//          if sourceSectionData.isEmpty {
+//              tableView.deleteSections(IndexSet(integer: sourceIndexPath.section), with: .automatic)
+//          }
+////          setupData()
+//          
+//          print("7")
+//          tableView.endUpdates()
+//          
+//          if sourceSectionData.isEmpty {
+////
+////              if destinationIndexPath.section == tableView.numberOfSections-1 {
+////                             adjustedDestinationIndexPath = IndexPath(row: destinationIndexPath.row, section: destinationIndexPath.section - 1)
+//              
+//              print("8")
+//          } else {
+//              print("9")
+//              //이동하는 섹션에 행이 남아있을때 순서 코어데이터에 다시 저장
+//              if let updatedSourceSectionData = allData[sourceSectionKey] {
+//                  for (index, todoData) in updatedSourceSectionData.enumerated() {
+//                      todoData.order = Int64(index)
+//                      todoManager.todoOrderChangeUpdate(data: todoData, date: sourceDate, destinationOrder: Int64(index))
+//                  }
+//              }
+//              
+//          }
+//          print("10")
+//          //데이터가 옮겨진 섹션의 순서와 날짜 코어데이터에 다시 저장
+//          if let updatedDestinationSectionData = allData[destinationSectionKey] {
+//              for (index, todoData) in updatedDestinationSectionData.enumerated() {
+//                  todoData.order = Int64(index)
+//                  todoManager.todoOrderChangeUpdate(data: todoData, date: desticationDate, destinationOrder: Int64(index))
+//                               }
+//          }
+//          print("11")
 //          setupData()
-          tableView.endUpdates()
-          
-          if sourceSectionData.isEmpty {
-//
-//              if destinationIndexPath.section == tableView.numberOfSections-1 {
-//                             adjustedDestinationIndexPath = IndexPath(row: destinationIndexPath.row, section: destinationIndexPath.section - 1)
-              
-          } else {
-              
-              //이동하는 섹션에 행이 남아있을때 순서 코어데이터에 다시 저장
-              if let updatedSourceSectionData = allData[sourceSectionKey] {
-                  for (index, todoData) in updatedSourceSectionData.enumerated() {
-                      todoData.order = Int64(index)
-                      todoManager.todoOrderChangeUpdate(data: todoData, date: sourceDate, destinationOrder: Int64(index))
-                  }
-              }
-              
-          }
-              
-          //데이터가 옮겨진 섹션의 순서와 날짜 코어데이터에 다시 저장
-          if let updatedDestinationSectionData = allData[destinationSectionKey] {
-              for (index, todoData) in updatedDestinationSectionData.enumerated() {
-                  todoData.order = Int64(index)
-                  todoManager.todoOrderChangeUpdate(data: todoData, date: desticationDate, destinationOrder: Int64(index))
-                               }
-          }
-          
-          setupData()
       }
     
     

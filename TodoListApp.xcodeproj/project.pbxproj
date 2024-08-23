@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3BD847138B3F363AB357536B /* Pods_TodoListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FC6278CEA6253BEB7CCFB8 /* Pods_TodoListApp.framework */; };
+		396C39A02C78566900A02211 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 396C399F2C78566900A02211 /* FSCalendar */; };
 		FC8EA1842C215E4D007FBB84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8EA1832C215E4D007FBB84 /* AppDelegate.swift */; };
 		FC8EA1862C215E4D007FBB84 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8EA1852C215E4D007FBB84 /* SceneDelegate.swift */; };
 		FC8EA1882C215E4D007FBB84 /* TodayTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8EA1872C215E4D007FBB84 /* TodayTodoViewController.swift */; };
@@ -38,9 +38,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		08F1929B1DEDE84AA0D703B9 /* Pods-TodoListApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoListApp.release.xcconfig"; path = "Target Support Files/Pods-TodoListApp/Pods-TodoListApp.release.xcconfig"; sourceTree = "<group>"; };
-		27772FAC0000A0D9A67A6494 /* Pods-TodoListApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoListApp.debug.xcconfig"; path = "Target Support Files/Pods-TodoListApp/Pods-TodoListApp.debug.xcconfig"; sourceTree = "<group>"; };
-		B8FC6278CEA6253BEB7CCFB8 /* Pods_TodoListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC3FDE022C512E9400AB85EB /* TodoListApp 13.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TodoListApp 13.xcdatamodel"; sourceTree = "<group>"; };
 		FC8EA1802C215E4D007FBB84 /* TodoListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC8EA1832C215E4D007FBB84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,26 +86,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BD847138B3F363AB357536B /* Pods_TodoListApp.framework in Frameworks */,
+				396C39A02C78566900A02211 /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6D9FE3D51B9E7C8B8FA05AB7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B8FC6278CEA6253BEB7CCFB8 /* Pods_TodoListApp.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		97D86117A0AF7E39387E9A84 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				27772FAC0000A0D9A67A6494 /* Pods-TodoListApp.debug.xcconfig */,
-				08F1929B1DEDE84AA0D703B9 /* Pods-TodoListApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -119,7 +106,6 @@
 				FC8EA1822C215E4D007FBB84 /* TodoListApp */,
 				FC8EA1812C215E4D007FBB84 /* Products */,
 				97D86117A0AF7E39387E9A84 /* Pods */,
-				6D9FE3D51B9E7C8B8FA05AB7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -213,17 +199,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC8EA1972C215E4E007FBB84 /* Build configuration list for PBXNativeTarget "TodoListApp" */;
 			buildPhases = (
-				27555C35385DBADADA335364 /* [CP] Check Pods Manifest.lock */,
 				FC8EA17C2C215E4D007FBB84 /* Sources */,
 				FC8EA17D2C215E4D007FBB84 /* Frameworks */,
 				FC8EA17E2C215E4D007FBB84 /* Resources */,
-				AF23E22653DCBBF81A3F5F70 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = TodoListApp;
+			packageProductDependencies = (
+				396C399F2C78566900A02211 /* FSCalendar */,
+			);
 			productName = TodoListApp;
 			productReference = FC8EA1802C215E4D007FBB84 /* TodoListApp.app */;
 			productType = "com.apple.product-type.application";
@@ -252,6 +239,9 @@
 				Base,
 			);
 			mainGroup = FC8EA1772C215E4D007FBB84;
+			packageReferences = (
+				396C399E2C78566900A02211 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+			);
 			productRefGroup = FC8EA1812C215E4D007FBB84 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -273,48 +263,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		27555C35385DBADADA335364 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TodoListApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AF23E22653DCBBF81A3F5F70 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TodoListApp/Pods-TodoListApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TodoListApp/Pods-TodoListApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TodoListApp/Pods-TodoListApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FC8EA17C2C215E4D007FBB84 /* Sources */ = {
@@ -488,13 +436,12 @@
 		};
 		FC8EA1982C215E4E007FBB84 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 27772FAC0000A0D9A67A6494 /* Pods-TodoListApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SSRAR6G728;
+				DEVELOPMENT_TEAM = 59NQ3YR32K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodoListApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -518,13 +465,12 @@
 		};
 		FC8EA1992C215E4E007FBB84 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08F1929B1DEDE84AA0D703B9 /* Pods-TodoListApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SSRAR6G728;
+				DEVELOPMENT_TEAM = 59NQ3YR32K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodoListApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -568,6 +514,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		396C399E2C78566900A02211 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		396C399F2C78566900A02211 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 396C399E2C78566900A02211 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FC8EA18C2C215E4D007FBB84 /* TodoListApp.xcdatamodeld */ = {
