@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21G920" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="TodoData" representedClassName="TodoData" syncable="YES">
+        <attribute name="checkStatus" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="order" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="todoDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="todoText" optional="YES" attributeType="String"/>
+        <attribute name="uuid" attributeType="UUID" usesScalarValueType="NO"/>
+    </entity>
+    <elements>
+        <element name="TodoData" positionX="-63" positionY="-18" width="128" height="104"/>
+    </elements>
+</model>
