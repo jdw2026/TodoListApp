@@ -264,7 +264,7 @@ extension AllTodoListViewController: UITableViewDataSource {
           guard let sourceSectionData = tempAllData[sourceSectionKey] else { return }
           let movedData = sourceSectionData[sourceIndexPath.row]
           
-          // 원본 데이터 값 이동 (이미 여기서 테이블뷰는 다시 그려진거나 다름 없음)
+          // 원본 데이터 값 이동 (이미 여기서 테이블뷰는 다시 그려진거나 다름 없음?)
           self.dicDataArray?[sourceSectionKey]?.remove(at: sourceIndexPath.row)
           self.dicDataArray?[destinationSectionKey]?.append(movedData)
           
@@ -273,7 +273,7 @@ extension AllTodoListViewController: UITableViewDataSource {
           // 코어 데이터 다시 불러와서 dicDataArray 코어데이터 기준으로 업데이트
 //          setupData()
           
-          
+          // 여기까지 왔을 때 어떻게 동작하는지 확인 필요.
           
           
           
